@@ -8,29 +8,48 @@
       contents="A learning website which helps you in learning with ease"
     />
     <title>QuickMemo</title>
-    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+    <link rel="icon" href="./assets/favicon.ico" type="image/x-icon" />
     <link rel="stylesheet" href="./css/style.css" />
-    <script defer src="script.js"></script>
+    <script defer src="./javascript/script.js"></script>
   </head>
   <body>
-    <main id="mainContainer">
-      <article class="card">
-        <h1 class="front">Question 1</h1>
-        <p class="back">
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quia facere
-          ex sint excepturi ullam laboriosam dolorum cumque modi officiis sequi
-          omnis, repudiandae, a mollitia vero magni iure hic. Earum, nisi!
-        </p>
-      </article>
-      <article class="card">
-        <h1 class="front">Question 2</h1>
-        <p class="back">
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Architecto
-          nisi doloribus esse delectus excepturi fugit eum et, deserunt iusto
-          asperiores pariatur fugiat vel? Esse repellat quo accusamus minus odio
-          aperiam.
-        </p>
-      </article>
+    <main>
+      <section id="mainContainer"></section>
+      <section>
+        <article class="card">
+          <figure>
+            <img
+              src="./assets/card-plus-outline.svg"
+              width="200px"
+              height="200px"
+              alt="add card image"
+            />
+          </figure>
+          <fieldset class="data__fieldset">
+            <legend class="offscreen">Enter the card details</legend>
+            <p class="data__p">
+              <label class="data__label" for="question">Question</label>
+              <input class="data__input" type="text" name="text" id="question" required />
+              <br />
+            </p>
+            <br />
+            <legend class="offscreen">Enter the card details</legend>
+            <p>
+              <label class="data__label" for="answer">Answer</label>
+              <br />
+              <textarea
+              class="data__textarea"
+                name="answer"
+                id="answer"
+                cols="30"
+                rows="10"
+                required
+              ></textarea>
+            </p>
+          </fieldset>
+          </form>
+        </article>
+      </section>
     </main>
   </body>
 </html>

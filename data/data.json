@@ -1,0 +1,14 @@
+{
+    "data": [
+        {
+            "_id": 1,
+            "question": "lorem ipsem dolor sit amet",
+            "answer": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quia facere ex sint excepturi ullam laboriosam dolorum cumque modi officiis sequiomnis, repudiandae, a mollitia vero magni iure hic. Earum, nisi!"
+        },
+        {
+            "_id": 2,   
+            "question": "lorem ipsum, dolor sit amet",
+            "answer": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quia facere ex sint excepturi ullam laboriosam dolorum cumque modi officiis sequiomnis, repudiandae, a mollitia vero magni iure hic. Earum, nisi!"
+        }
+    ]
+}
