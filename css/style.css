@@ -34,6 +34,7 @@ textarea {
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 body {
@@ -86,6 +87,36 @@ section {
   transition-delay: 0.5s;
   box-shadow: 0 0 10px #0000003c;
 }
+.questionCard {
+  width: min(100%, 400px);
+  height: 55vh;
+  margin-top: 10vh;
+  border: 2px solid #000;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transform-style: preserve-3d;
+  transition: all 1.5s ease;
+}
+
+.questionCard figure {
+  display: flex;
+  width: 4rem;
+  backface-visibility: hidden;
+}
+
+.questionCard fieldset {
+  display: flex;
+  backface-visibility: hidden;
+  transform: rotateY(180deg);
+}
+.questionCardHover {
+  transform: rotateY(180deg);
+  transition-delay: 0.5s;
+  box-shadow: 0 0 10px #0000003c;
+}
 
 .front {
   position: absolute;
@@ -115,20 +146,21 @@ section {
   transform: rotateY(180deg);
 }
 
-.data__filedset{
+.data__filedset {
   border: none;
 }
 
-.data__p{
+.data__p {
   margin: 1rem 0;
 }
 
-.data__label{
+.data__label {
   display: block;
   font-weight: bold;
 }
 
-.data__input,.data__textarea{
+.data__input,
+.data__textarea {
   padding: 0.5rem;
   border-radius: 5px;
   border-width: 2px;
