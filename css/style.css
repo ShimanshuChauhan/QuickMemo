@@ -51,10 +51,12 @@ main {
   align-items: center;
   margin-top: min(20%, 15rem);
   transform-style: preserve-3d;
+  transition: all 1.5s ease;
 }
 
 .card:hover {
   transform: rotateY(180deg);
+  transition-delay: 1s;
 }
 
 .front {
