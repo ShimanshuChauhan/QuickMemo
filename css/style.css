@@ -34,8 +34,9 @@ body {
 main {
   flex-grow: 1;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
   gap: 3.5rem;
   padding: 1rem;
   background: none;
@@ -43,13 +44,13 @@ main {
 
 .card {
   width: min(100%, 400px);
-  height: 500px;
+  height: 60vh;
+  margin-top: 10vh;
   border: 2px solid #000;
   border-radius: 10px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: min(20%, 15rem);
   transform-style: preserve-3d;
   transition: all 1.5s ease;
 }
@@ -57,6 +58,7 @@ main {
 .card:hover {
   transform: rotateY(180deg);
   transition-delay: 1s;
+  box-shadow: 0 0 10px #0000003c;
 }
 
 .front {
@@ -85,4 +87,13 @@ main {
   overflow: hidden;
   text-align: center;
   transform: rotateY(180deg);
+}
+
+.myH1 {
+  background-color: greenyellow;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  min-width: 100vw;
+  width: 100vw;
+  display: block;
 }
