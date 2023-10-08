@@ -1,5 +1,5 @@
 /* || RESET */
-@import url("https://fonts.googleapis.com/css2?family=Inter&family=Open+Sans&family=Pixelify+Sans&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter&family=Open+Sans&family=Raleway&display=swap");
 * {
   margin: 0;
   padding: 0;
@@ -8,7 +8,7 @@
 html {
   scroll-behavior: smooth;
   /* overflow-x: hidden; */
-  font-family: "Pixelify Sans";
+  font-family: "Raleway";
 }
 body {
   min-height: 100vh;
@@ -26,16 +26,6 @@ body {
   background-attachment: fixed;
 }
 
-/* || CARDS */
-section {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 3.5rem;
-  padding: 1rem;
-  background: none;
-}
 img {
   display: block;
   max-width: 100%;
@@ -47,16 +37,31 @@ button,
 textarea {
   font: inherit;
 }
+
 /* || UTILITY CLASSES */
+
 .nowrap {
   white-space: nowrap;
 }
 
-.center {
-  text-align: center;
+#center {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  margin-bottom: 10vh;
 }
 
-/* || GENERAL STYLES */
+/* || CARDS */
+section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 3.5rem;
+  padding: 1rem;
+  background: none;
+}
 
 .card {
   width: min(100%, 400px);
@@ -69,8 +74,9 @@ textarea {
   justify-content: center;
   transform-style: preserve-3d;
   transition: all 1.5s ease;
-  background-color: whitesmoke;
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  background-color: white;
+  border: 0.0009px solid hsla(0, 16%, 27%, 0.372);
+  box-shadow: hsla(0, 0%, 58%, 0) 0px 3px 8px;
 }
 
 .card figure {
@@ -85,18 +91,33 @@ textarea {
   transform: rotateY(180deg);
 }
 .card:hover {
-  transform: translate3D(0, -1px, 0) scale(1.08) rotateY(180deg);
+  transform:/* translate3D(0, -1px, 0) scale(1.08)*/ rotateY(180deg);
   transition-delay: 0.5s;
-  box-shadow: black -10px 20px;
+  box-shadow: black -10px 10px;
 }
 
+.card__button {
+  display: block;
+  letter-spacing: 1px;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 10px;
+  backface-visibility: hidden;
+  position: absolute;
+  left: 1rem;
+  bottom: 1rem;
+  transform: rotateY(180deg);
+}
+
+/* || QUESTION CARD */
 #questionContainer {
   width: min(100%, 400px);
   min-height: 55vh;
   max-height: 55vh;
   height: 55vh;
+  padding: 0;
   margin-top: 10vh;
-  border-radius: 10px;
+  border-radius: 20px;
   display: flex;
 }
 
@@ -117,10 +138,16 @@ textarea {
 }
 
 .questionCard {
-  height: 100%;
-  width: 100%;
+  width: min(100%, 400px);
+  height: 55vh;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   transform-style: preserve-3d;
   transition: all 1.5s ease;
+  border: 0.0009px solid hsla(0, 16%, 27%, 0.372);
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
@@ -133,15 +160,18 @@ textarea {
 }
 
 .questionCardHover {
-  transform: translate3D(0, -1px, 0) scale(1.08) rotateY(180deg);
+  transform: /*translate3D(0, -1px, 0) scale(1.08)*/ rotateY(180deg);
   border: none;
+  box-shadow: black -10px 10px;
+  border: 0.0009px solid hsla(0, 16%, 27%, 0.372);
   transition-delay: 0.5s;
 }
 
 .front {
+  word-wrap: break-word;
   position: absolute;
-  top: 0;
-  left: 0;
+  top: 0%;
+  left: 0%;
   width: 100%;
   height: 100%;
   padding: 1rem;
@@ -150,10 +180,21 @@ textarea {
   backface-visibility: hidden;
   overflow: hidden;
   color: #000;
-  font-size: 2rem;
+  font-size: 2.5rem;
+  letter-spacing: 0.05em;
+  line-height: 1.2em;
+}
+
+.front h1 {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2.5rem;
 }
 
 .back {
+  word-wrap: break-word;
   position: absolute;
   top: 0;
   left: 0;
@@ -165,6 +206,13 @@ textarea {
   overflow: hidden;
   text-align: center;
   transform: rotateY(180deg);
+}
+.back p {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
 }
 
 .data__p {
@@ -175,6 +223,7 @@ textarea {
 .data__input,
 .data__textarea {
   padding: 0.5rem;
+  margin: 0.8rem auto;
   border: none;
   border-radius: 5px;
   border-width: 2px;
@@ -185,27 +234,45 @@ textarea {
 .data__textarea {
   height: 60%;
 }
+
 .data__button {
-  text-transform: uppercase;
-  letter-spacing: 3px;
-  padding: 10px;
-  margin: 2rem;
+  display: block;
+  letter-spacing: 1px;
+  padding: 0.5rem 1rem;
   border: none;
-  border-radius: 20px;
-  font-weight: bold;
+  border-radius: 10px;
   transform: rotateY(180deg);
 }
 
-button:hover {
-  background: palevioletred;
-  color: white;
-  transition: background-color 1.5s ease-out;
+.data__input,
+.data__textarea {
+  background: pink;
+  width: 100%;
+  color: black;
+  border: none;
+  border-bottom: 1px solid rgba(white, 0.5);
+  padding: 9px;
+  margin: 7px;
 }
 
-#center {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-content: center;
-  margin-bottom: 10vh;
+.data__input::placeholder,
+.data__textarea::placeholder {
+  color: rgba(white, 1);
+  letter-spacing: 1px;
+  font-size: 1.3em;
+  font-weight: 100;
+}
+
+.data__input:focus,
+.data__textarea:focus {
+  color: black;
+  outline: none;
+  border-bottom: 1.2px solid rgba(pink, 0.7);
+  font-size: 1em;
+  transition: 0.8s all ease;
+}
+
+button:hover {
+  box-shadow: black 4px 4px;
+  transition: 0.8s all ease;
 }
