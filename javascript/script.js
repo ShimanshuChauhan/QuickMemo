@@ -1,5 +1,5 @@
 async function modify() {
-  let html = ''
+  let html = "";
   const data = JSON.parse(localStorage.getItem("quickMemo"));
   for (let i = 0; i < data.length; i++) {
     html += `
@@ -16,49 +16,50 @@ async function modify() {
 
 function addQuestionListener() {
   const question = document.getElementsByClassName("questionCard")[0];
-  console.log(question);
+  const addImage = document.getElementById("addImage");
+  const dataFieldSet = document.getElementById("data__fieldset");
 
   question.addEventListener("mouseover", function (e) {
     e.preventDefault();
     question.classList.add("questionCardHover");
-    console.log("Enter");
+    setTimeout(function () {
+      addImage.style.display = "none";
+      dataFieldSet.style.display = "block";
+    }, 1000);
   });
 }
 
 function addItem() {
-  //TODO: code to add item
-  const questionAdd = document.getElementById("question")
-  const answer = document.getElementById("answer")
+  const questionAdd = document.getElementById("question");
+  const answer = document.getElementById("answer");
   const addButton = document.getElementById("submit");
 
   addButton.addEventListener("click", function () {
-    let list = []
+    let list = [];
     var HTMLdata = {
-      "question": questionAdd.value,
-      "answer": answer.value
-    }
+      question: questionAdd.value,
+      answer: answer.value,
+    };
     const data = localStorage.getItem("quickMemo");
     const id = localStorage.getItem("counter");
     if (id) {
-      const num = parseInt(id)
-      localStorage.setItem("counter", num + 1)
-    }
-    else {
-      localStorage.setItem("counter", 1)
+      const num = parseInt(id);
+      localStorage.setItem("counter", num + 1);
+    } else {
+      localStorage.setItem("counter", 1);
     }
     if (data) {
       const allData = JSON.parse(data);
-      list = [...allData, HTMLdata]
-    }
-    else {
-      list.push(HTMLdata)
+      list = [...allData, HTMLdata];
+    } else {
+      list.push(HTMLdata);
     }
     localStorage.setItem("quickMemo", JSON.stringify(list));
     const question = document.getElementsByClassName("questionCard")[0];
     console.log("KINNIaddButton", question);
     question.classList.remove("questionCardHover");
     window.location.reload();
-  })
+  });
   // Remove the class questionCardHover
 }
 
