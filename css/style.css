@@ -35,13 +35,23 @@ textarea {
 html {
   scroll-behavior: smooth;
   overflow-x: hidden;
+  overflow-y: scroll;
 }
 
 body {
   min-height: 100vh;
+  min-width: auto;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
+  overflow-x: hidden;
+  background-image: linear-gradient(
+    to bottom right,
+    #ff9eaa 0% 65%,
+    #e860ff 95% 100%
+  );
+  background-position: center;
+  background-attachment: fixed;
 }
 
 /* || CARDS */
@@ -60,15 +70,15 @@ section {
   width: min(100%, 400px);
   height: 55vh;
   margin-top: 10vh;
-  border: 2px solid #000;
-  border-radius: 10px;
+  border-radius: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-
   transform-style: preserve-3d;
   transition: all 1.5s ease;
+  background-color: whitesmoke;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
 .card figure {
@@ -83,7 +93,7 @@ section {
   transform: rotateY(180deg);
 }
 .card:hover {
-  transform: rotateY(180deg);
+  transform: /*translate3D(0,-1px,0) scale(1.08)*/ rotateY(180deg);
   transition-delay: 0.5s;
   box-shadow: 0 0 10px #0000003c;
 }
@@ -91,7 +101,6 @@ section {
   width: min(100%, 400px);
   height: 55vh;
   margin-top: 10vh;
-  border: 2px solid #000;
   border-radius: 10px;
   display: flex;
   flex-direction: column;
@@ -99,6 +108,7 @@ section {
   justify-content: center;
   transform-style: preserve-3d;
   transition: all 1.5s ease;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
 .questionCard figure {
@@ -108,14 +118,15 @@ section {
 }
 
 .questionCard fieldset {
-  display: flex;
+  display: block;
   backface-visibility: hidden;
   transform: rotateY(180deg);
 }
+
 .questionCardHover {
-  transform: rotateY(180deg);
+  transform:/* translate3D(0,-1px,0) scale(1.08)*/ rotateY(180deg);
+  border: none;
   transition-delay: 0.5s;
-  box-shadow: 0 0 10px #0000003c;
 }
 
 .front {
@@ -146,32 +157,43 @@ section {
   transform: rotateY(180deg);
 }
 
-.data__filedset {
+.data__fieldset {
+  width: 85%;
+  margin: 2rem;
+  border: 0px;
   border: none;
 }
 
 .data__p {
+  width: 100%;
   margin: 1rem 0;
-}
-
-.data__label {
-  display: block;
-  font-weight: bold;
 }
 
 .data__input,
 .data__textarea {
   padding: 0.5rem;
+  border: none;
   border-radius: 5px;
   border-width: 2px;
   width: 100%;
+  resize: none;
 }
 
-/* .myH1 {
-  background-color: greenyellow;
-  font-size: 2rem;
-  margin-bottom: 1rem;
-  min-width: 100vw;
-  width: 100vw;
+.data__button {
   display: block;
-} */
+  padding: 12px;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  margin: 2rem;
+  border: none;
+  border-radius: 20px;
+  font-weight: bold;
+  backface-visibility: hidden;
+  transform: rotateY(180deg);
+}
+
+button:hover {
+  background: palevioletred;
+  color: white;
+  transition: background-color 1.5s ease-out;
+}
