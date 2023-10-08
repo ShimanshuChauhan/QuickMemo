@@ -15,50 +15,46 @@
   <body>
     <main>
       <section id="mainContainer"></section>
-      <section>
-        <article class="questionCard">
-          <figure>
-            <img
-              src="./assets/card-plus-outline.svg"
-              width="200px"
-              height="200px"
-              alt="add card image"
-            />
-          </figure>
-          <fieldset
-            class="data__fieldset"
-            id="questionForm"
-            method="post"
-            action="http://localhost:5500/form"
-          >
-            <legend class="offscreen">Enter the card details</legend>
-            <p class="data__p">
-              <input
-                class="data__input"
-                id="question"
-                type="text"
-                name="text"
-                required
-                placeholder="Question"
+      <div  id="center">
+        <section id="questionContainer">
+          <article class="questionCard">
+            <figure id="addImage">
+              <img
+                src="./assets/card-plus-outline.svg"
+                height="100px"
+                width="100px"
+                alt="add card image"
               />
-              <br />
-            </p>
-            <br />
-            <p>
-              <textarea
-                class="data__textarea"
-                name="answer"
-                id="answer"
-                cols="40"
-                rows="10"
-                required
-                placeholder="answer"
-              ></textarea>
-            </p>
-          </fieldset>
-          <button class="data__button" id="submit">Add Card</button>
-        </article>
-      </section>
+            </figure>
+            <div id="data__fieldset">
+              <fieldset method="post" action="http://localhost:5500/form">
+                <legend>Enter the card details</legend>
+                <input
+                  class="data__input"
+                  id="question"
+                  type="text"
+                  name="text"
+                  required
+                  placeholder="Question"
+                />
+                <br />
+                <p>
+                  <textarea
+                    class="data__textarea"
+                    name="answer"
+                    id="answer"
+                    cols="40"
+                    required
+                    placeholder="answer"
+                  ></textarea>
+                </p>
+              </fieldset>
+              <button class="data__button" id="submit">Add Card</button>
+            </div>
+            <!-- </div> -->
+          </article>
+        </section>
+      </div>
     </main>
   </body>
 </html>

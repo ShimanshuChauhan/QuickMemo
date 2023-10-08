@@ -5,7 +5,37 @@
   padding: 0;
   box-sizing: border-box;
 }
+html {
+  scroll-behavior: smooth;
+  /* overflow-x: hidden; */
+  font-family: "Pixelify Sans";
+}
+body {
+  min-height: 100vh;
+  min-width: 100vw;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+  background-image: linear-gradient(
+    to bottom right,
+    #ff9eaa 0% 65%,
+    #e860ff 95% 100%
+  );
+  background-position: center;
+  background-attachment: fixed;
+}
 
+/* || CARDS */
+section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 3.5rem;
+  padding: 1rem;
+  background: none;
+}
 img {
   display: block;
   max-width: 100%;
@@ -22,51 +52,11 @@ textarea {
   white-space: nowrap;
 }
 
-.offscreen {
-  position: absolute;
-  left: -10000px;
-}
-
 .center {
   text-align: center;
 }
 
 /* || GENERAL STYLES */
-
-html {
-  scroll-behavior: smooth;
-  overflow-x: hidden;
-  font-family: "Pixelify Sans";
-  overflow-y: scroll;
-}
-
-body {
-  min-height: 100vh;
-  min-width: auto;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  overflow-x: hidden;
-  background-image: linear-gradient(
-    to bottom right,
-    #ff9eaa 0% 65%,
-    #e860ff 95% 100%
-  );
-  background-position: center;
-  background-attachment: fixed;
-}
-
-/* || CARDS */
-section {
-  flex-grow: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 3.5rem;
-  padding: 1rem;
-  background: none;
-}
 
 .card {
   width: min(100%, 400px);
@@ -86,47 +76,64 @@ section {
 .card figure {
   display: flex;
   width: 4rem;
-  backface-visibility: hidden;
 }
 
 .card fieldset {
   display: flex;
-  backface-visibility: hidden;
+  flex-direction: column;
+  border: none;
   transform: rotateY(180deg);
 }
 .card:hover {
-  transform: /*translate3D(0,-1px,0) scale(1.08)*/ rotateY(180deg);
+  transform: translate3D(0, -1px, 0) scale(1.08) rotateY(180deg);
   transition-delay: 0.5s;
-  box-shadow: 0 0 10px #0000003c;
+  box-shadow: black -10px 20px;
 }
-.questionCard {
+
+#questionContainer {
   width: min(100%, 400px);
+  min-height: 55vh;
+  max-height: 55vh;
   height: 55vh;
   margin-top: 10vh;
   border-radius: 10px;
   display: flex;
+}
+
+#data__fieldset {
+  display: none;
+  width: 85%;
+  height: 80%;
+  margin: 2rem;
+  border: 0px;
+  border: none;
+}
+.questionCard fieldset {
+  display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  justify-content: space-evenly;
+  border: none;
+  transform: rotateY(180deg);
+}
+
+.questionCard {
+  height: 100%;
+  width: 100%;
   transform-style: preserve-3d;
   transition: all 1.5s ease;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
 .questionCard figure {
+  width: 100%;
+  height: 100%;
   display: flex;
-  width: 4rem;
-  backface-visibility: hidden;
-}
-
-.questionCard fieldset {
-  display: block;
-  backface-visibility: hidden;
-  transform: rotateY(180deg);
+  justify-content: center;
+  align-items: center;
 }
 
 .questionCardHover {
-  transform:/* translate3D(0,-1px,0) scale(1.08)*/ rotateY(180deg);
+  transform: translate3D(0, -1px, 0) scale(1.08) rotateY(180deg);
   border: none;
   transition-delay: 0.5s;
 }
@@ -160,13 +167,6 @@ section {
   transform: rotateY(180deg);
 }
 
-.data__fieldset {
-  width: 85%;
-  margin: 2rem;
-  border: 0px;
-  border: none;
-}
-
 .data__p {
   width: 100%;
   margin: 1rem 0;
@@ -182,16 +182,17 @@ section {
   resize: none;
 }
 
+.data__textarea {
+  height: 60%;
+}
 .data__button {
-  display: block;
-  padding: 12px;
   text-transform: uppercase;
   letter-spacing: 3px;
+  padding: 10px;
   margin: 2rem;
   border: none;
   border-radius: 20px;
   font-weight: bold;
-  backface-visibility: hidden;
   transform: rotateY(180deg);
 }
 
@@ -199,4 +200,12 @@ button:hover {
   background: palevioletred;
   color: white;
   transition: background-color 1.5s ease-out;
+}
+
+#center {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  margin-bottom: 10vh;
 }
