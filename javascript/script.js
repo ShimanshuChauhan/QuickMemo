@@ -1,19 +1,16 @@
 function modify() {
   let html = "";
-  const data =
-    JSON.parse(localStorage.getItem("quickMemo"));
-
+  const data = JSON.parse(localStorage.getItem("quickMemo"));
 
   if (!data || data.length == 0) {
-    const fText = 'Welcome to QuickMemo!<br><br>Hover to learn more'
-    const bText = ''
+    const fText = "Welcome to QuickMemo!<br><br>Hover to learn more";
+    const bText = "";
     html += `
-     <article class="card">
+      <article class="card">
         <div class="front"><h1>${fText}</h1></div>
         <div class="back">${bText}<p> hi </p></div>
       </article>`;
-  }
-  else {
+  } else {
     for (let i = 0; i < data.length; i++) {
       html += `
      <article class="card">
@@ -49,9 +46,8 @@ function addItem() {
   const addButton = document.getElementById("submit");
 
   addButton.addEventListener("click", function () {
-
     if (questionAdd.value == 0 || answer.value == 0) {
-      alert("Kya kar rha hai bhai tu, value to de")
+      alert("Kya kar rha hai bhai tu, value to de");
       return;
     }
 
@@ -64,12 +60,12 @@ function addItem() {
       localStorage.setItem("counter", 1);
     }
     const newId = localStorage.getItem("counter");
-    const newNum = parseInt(newId)
+    const newNum = parseInt(newId);
 
     var HTMLdata = {
       question: questionAdd.value,
       answer: answer.value,
-      id: newNum
+      id: newNum,
     };
     const data = localStorage.getItem("quickMemo");
     if (data) {
@@ -89,10 +85,25 @@ function addItem() {
 
 function deleteItem(id) {
   console.log(localStorage.getItem("quickMemo"));
-  const data = JSON.parse(localStorage.getItem("quickMemo"))
+  const data = JSON.parse(localStorage.getItem("quickMemo"));
   const newList = data.filter((d) => d.id != id);
   localStorage.setItem("quickMemo", JSON.stringify(newList));
 
+  window.location.reload();
+}
+
+function shuffle() {
+  const data = JSON.parse(localStorage.getItem("quickMemo"));
+  const len = data.length;
+
+  for (let i = 0; i < len; i++) {
+    const rand = Math.floor(Math.random() * len);
+    const temp = data[i];
+    data[i] = data[rand];
+    data[rand] = temp;
+  }
+
+  localStorage.setItem("quickMemo", JSON.stringify(data));
   window.location.reload();
 }
 

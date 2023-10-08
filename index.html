@@ -14,15 +14,28 @@
   </head>
   <body>
     <main>
+      <div id="logo">
+        <img src="./assets/favicon.ico" height="50px" width="50px" alt="" />
+      </div>
+      <div id="shuffle" onclick="shuffle()">
+        <img
+          src="./assets/shuffle-variant.svg"
+          height="50px"
+          width="50px"
+          alt=""
+        />
+      </div>
+
       <section id="mainContainer"></section>
       <div id="center">
         <section id="questionContainer">
           <article class="questionCard">
             <figure id="addImage">
               <img
-                src="./assets/card-plus-outline.svg"
-                height="100px"
-                width="100px"
+                class="addImage"
+                src="./assets/plus-box.svg"
+                height="50px"
+                width="50px"
                 alt="add card image"
               />
             </figure>
@@ -36,7 +49,6 @@
                   required
                   placeholder="Question"
                 />
-                <br />
                 <p>
                   <textarea
                     class="data__textarea"
@@ -53,6 +65,9 @@
             <!-- </div> -->
           </article>
         </section>
+      </div>
+      <div id="footer">
+        <p>~ Pure HTML and CSS Bliss ~</p>
       </div>
     </main>
   </body>

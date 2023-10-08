@@ -17,11 +17,16 @@ body {
   display: flex;
   flex-direction: column;
   overflow-x: hidden;
-  background-image: linear-gradient(
+  /* background-color: #85ffbd;
+  background-image: linear-gradient(45deg, #85ffbd 0%, #fffb7d 100%); */
+  background-color: #a9c9ff;
+  background-image: linear-gradient(180deg, #a9c9ff 0%, #ffbbec 100%);
+
+  /* background-image: linear-gradient(
     to bottom right,
     #ff9eaa 0% 65%,
     #e860ff 95% 100%
-  );
+  ); */
   background-position: center;
   background-attachment: fixed;
 }
@@ -36,6 +41,10 @@ input,
 button,
 textarea {
   font: inherit;
+}
+
+main {
+  display: relative;
 }
 
 /* || UTILITY CLASSES */
@@ -74,7 +83,8 @@ section {
   justify-content: center;
   transform-style: preserve-3d;
   transition: all 1.5s ease;
-  background-color: white;
+  background-color: rgba(255, 255, 255, 0.187);
+  /* background-color: #ffccd5; */
   border: 0.0009px solid hsla(0, 16%, 27%, 0.372);
   box-shadow: hsla(0, 0%, 58%, 0) 0px 3px 8px;
 }
@@ -135,6 +145,7 @@ section {
   justify-content: space-evenly;
   border: none;
   transform: rotateY(180deg);
+  margin-bottom: 10px;
 }
 
 .questionCard {
@@ -147,6 +158,7 @@ section {
   justify-content: center;
   transform-style: preserve-3d;
   transition: all 1.5s ease;
+  background-color: rgba(255, 255, 255, 0.187);
   border: 0.0009px solid hsla(0, 16%, 27%, 0.372);
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
@@ -222,6 +234,7 @@ section {
 
 .data__input,
 .data__textarea {
+  font-size: 0.9rem;
   padding: 0.5rem;
   margin: 0.8rem auto;
   border: none;
@@ -231,22 +244,18 @@ section {
   resize: none;
 }
 
-.data__textarea {
-  height: 60%;
-}
-
 .data__button {
   display: block;
-  letter-spacing: 1px;
   padding: 0.5rem 1rem;
   border: none;
   border-radius: 10px;
+  background-color: azure;
   transform: rotateY(180deg);
 }
 
 .data__input,
 .data__textarea {
-  background: pink;
+  background: azure;
   width: 100%;
   color: black;
   border: none;
@@ -255,24 +264,41 @@ section {
   margin: 7px;
 }
 
-.data__input::placeholder,
-.data__textarea::placeholder {
-  color: rgba(white, 1);
-  letter-spacing: 1px;
-  font-size: 1.3em;
-  font-weight: 100;
-}
-
-.data__input:focus,
-.data__textarea:focus {
-  color: black;
-  outline: none;
-  border-bottom: 1.2px solid rgba(pink, 0.7);
-  font-size: 1em;
-  transition: 0.8s all ease;
-}
-
 button:hover {
   box-shadow: black 4px 4px;
   transition: 0.8s all ease;
+}
+#logo {
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  height: 50px;
+  width: 50px;
+}
+
+#shuffle {
+  position: fixed;
+  bottom: 75px;
+  right: 10px;
+  height: 50px;
+  width: 50px;
+  background-color: black;
+  border-radius: 10px;
+  padding: 4px;
+  cursor: pointer;
+}
+
+#shuffle img {
+  filter: invert(100%);
+}
+
+#footer {
+  height: 10vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: black;
+  font-weight: 900;
+  opacity: 0.5;
 }
