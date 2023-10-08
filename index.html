@@ -16,7 +16,7 @@
     <main>
       <section id="mainContainer"></section>
       <section>
-        <article class="questionCard" >
+        <article class="questionCard">
           <figure>
             <img
               src="./assets/card-plus-outline.svg"
@@ -25,29 +25,38 @@
               alt="add card image"
             />
           </figure>
-          <fieldset class="data__fieldset" >
+          <fieldset
+            class="data__fieldset"
+            id="questionForm"
+            method="post"
+            action="http://localhost:5500/form"
+          >
             <legend class="offscreen">Enter the card details</legend>
             <p class="data__p">
-              <label class="data__label" for="question">Question</label>
-              <input class="data__input" type="text" name="text"  required />
+              <input
+                class="data__input"
+                id="question"
+                type="text"
+                name="text"
+                required
+                placeholder="Question"
+              />
               <br />
             </p>
             <br />
-            <legend class="offscreen">Enter the card details</legend>
             <p>
-              <label class="data__label" for="answer">Answer</label>
-              <br />
               <textarea
-              class="data__textarea"
+                class="data__textarea"
                 name="answer"
                 id="answer"
-                cols="30"
+                cols="40"
                 rows="10"
                 required
+                placeholder="answer"
               ></textarea>
             </p>
           </fieldset>
-          </form>
+          <button class="data__button" id="submit">Add Card</button>
         </article>
       </section>
     </main>

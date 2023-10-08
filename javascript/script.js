@@ -1,19 +1,17 @@
 async function modify() {
-  let data = "";
-  var response = await fetch("./data/data.json");
-  var body = await response.json();
-  console.log(body.data[1].question);
-  for (let i = 0; i < body.data.length; i++) {
-    data += `
+  let html = ''
+  const data = JSON.parse(localStorage.getItem("quickMemo"));
+  for (let i = 0; i < data.length; i++) {
+    html += `
      <article class="card">
-        <h1 class="front">${body.data[i].question} ${i + 1}</h1>
+        <h1 class="front">${data[i].question}</h1>
         <p class="back">
-          ${body.data[i].answer}
+          ${data[i].answer}
         </p>
       </article>`;
   }
 
-  document.getElementById("mainContainer").innerHTML = data;
+  document.getElementById("mainContainer").innerHTML = html;
 }
 
 function addQuestionListener() {
@@ -29,11 +27,41 @@ function addQuestionListener() {
 
 function addItem() {
   //TODO: code to add item
+  const questionAdd = document.getElementById("question")
+  const answer = document.getElementById("answer")
+  const addButton = document.getElementById("submit");
 
+  addButton.addEventListener("click", function () {
+    let list = []
+    var HTMLdata = {
+      "question": questionAdd.value,
+      "answer": answer.value
+    }
+    const data = localStorage.getItem("quickMemo");
+    const id = localStorage.getItem("counter");
+    if (id) {
+      const num = parseInt(id)
+      localStorage.setItem("counter", num + 1)
+    }
+    else {
+      localStorage.setItem("counter", 1)
+    }
+    if (data) {
+      const allData = JSON.parse(data);
+      list = [...allData, HTMLdata]
+    }
+    else {
+      list.push(HTMLdata)
+    }
+    localStorage.setItem("quickMemo", JSON.stringify(list));
+    const question = document.getElementsByClassName("questionCard")[0];
+    console.log("KINNIaddButton", question);
+    question.classList.remove("questionCardHover");
+    window.location.reload();
+  })
   // Remove the class questionCardHover
-  const question = document.getElementsByClassName("questionCard")[0];
-  question.classList.remove("questionCardHover");
 }
 
 modify();
 addQuestionListener();
+addItem();
