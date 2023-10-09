@@ -4,11 +4,11 @@ function modify() {
 
   if (!data || data.length == 0) {
     const fText = "Welcome to QuickMemo!<br><br>Hover to learn more";
-    const bText = "";
+    const bText = "Hover on the below card to add more cards<br><br>";
     html += `
       <article class="card">
         <div class="front"><h1>${fText}</h1></div>
-        <div class="back">${bText}<p> hi </p></div>
+        <div class="back"><p>${bText}</p></div>
       </article>`;
   } else {
     for (let i = 0; i < data.length; i++) {
@@ -47,7 +47,7 @@ function addItem() {
 
   addButton.addEventListener("click", function () {
     if (questionAdd.value == 0 || answer.value == 0) {
-      alert("Kya kar rha hai bhai tu, value to de");
+      alert("Please insert some data in input fields");
       return;
     }
 
